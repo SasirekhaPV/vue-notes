@@ -97,3 +97,6 @@ new Vue({
 ```
 <p v-html="finishedLink"></p>
 ```
+
+### Listening to events
+
