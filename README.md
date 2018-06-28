@@ -46,3 +46,12 @@ new Vue({
   <p>{{ title }}</p>
 </div>
 ```
+
+## Section 2: Using VueJS to interact with the DOM
+
+### The connection between a Vue instance and HTML code
+
+* By creating/instantiating a specific Vue instance we create a connection between the Vue object and the specific HTML code.
+* Vue takes the HTML code and creates a template based on that code. Vue does not add runtime or directly use the HTML code.
+* Vue used the template based on the HTML code to do it's actions and then renders this to the actual DOM. This allows for templating and string interpolation `{{ title }}`.
+* There is a layer between the rendered HTML code and the HTML we write. This layer is the VueJS instance which creates renders things into the HTML. `Written HTML code -> VueJS instance -> Final Rendered HTML code`.
