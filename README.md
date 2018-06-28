@@ -55,3 +55,13 @@ new Vue({
 * Vue takes the HTML code and creates a template based on that code. Vue does not add runtime or directly use the HTML code.
 * Vue used the template based on the HTML code to do it's actions and then renders this to the actual DOM. This allows for templating and string interpolation `{{ title }}`.
 * There is a layer between the rendered HTML code and the HTML we write. This layer is the VueJS instance which creates renders things into the HTML. `Written HTML code -> VueJS instance -> Final Rendered HTML code`.
+
+### How the VueJS Template Syntax and Instance work together
+
+* Data stored in the `data` property in the Vue instance can be outputted in the HTML using double curly braces `{{ title }}`.
+* Methods stored in the `methods` property can be called in the HTML using double curly braces `{{ myFunction() }}` .
+* Whatever you output in the curly braces has to be able to be converted into a string.
+
+### Accessing Data in the Vue Instance
+
+
