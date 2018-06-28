@@ -22,3 +22,27 @@ new Vue({
   <p>{{ title }}</p>
 </div>
 ```
+
+* A `directive` is command/instruction that Vue will recognize in order to perform a certain task. eg: `v-on`
+* `v-on:input="changeTitle"` is a directive that tells Vue to listen to an input event. When the event is triggered the changeTitle event will be fired.
+
+Stating a `method` in Vue object allows you to call that method in the HTML. All properties you need can be accessed using the `this` keyword. Vue automatically passes the event object to said method.
+```
+new Vue({
+  el: '#app',
+  data: {
+    title: 'Hello World'
+  },
+  Methods: {
+    changeTitle: function(event){
+      this.title = event.target.value;
+    }
+  }
+})
+```
+```
+<div id="app">
+  <input type="text" v-on:input="changeTitle">
+  <p>{{ title }}</p>
+</div>
+```
