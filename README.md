@@ -64,4 +64,20 @@ new Vue({
 
 ### Accessing Data in the Vue Instance
 
+* To access properties in the Vue instance, you need to use the `this` keyword `this.title`.
+* This works because behind the scenes Vue creates an easy access for us to these properties.
+* In the HTML template you don't need to use `this`, in the Vue Object you do.
+
+### Binding to Attributes
+
+* In VueJS you can't use curcly braces `{{ link }}` in any HTML element attributes. You can only use them in the place where you would normally use text.
+* For binding to attributes you can use the `v-bind` directive. This directive tells Vue to bind the attribute to a Vue property instead of reading the attribute normally `<a v-bind:href="link">Google</a>`. Using this you don't need curly braces because you're already reading the VueJS properties due to `v-bind`.
+
+### Understanding and using Directives
+
+* A Directive is an instruction you place in your code. Vue ships with a number of built in Directives. You can also write your own directives.
+* For example, `v-bind` tells Vue to bind something to the data of the Vue instance (which included the functions/methods).
+* Generally you pass an argument to directives using a colon `v-bind:href="link"` following with the attribute you want to bind. Then between the quotation marks you pass the name of the property/method that you want to pass from the VueJS instance.
+
+### Disable re-rendering with v-once
 
