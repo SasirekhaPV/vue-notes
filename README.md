@@ -81,3 +81,11 @@ new Vue({
 
 ### Disable re-rendering with v-once
 
+* Usually when you change a property, for example `title`, all instances of that property will change too.
+* You can stop this from happening using `v-once`. By adding this to an element all the content inside of this element will only be rendered once. It will not not be updated if anything changes.
+
+```
+<h1 v-once>{{ title }}</h1>
+```
+
+### Outputting raw HTML
