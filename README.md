@@ -89,3 +89,11 @@ new Vue({
 ```
 
 ### Outputting raw HTML
+
+* You can write HTML code in Vue properties `finishedLink: '<a href="http://google.com>Google</a>'`.
+* By default VueJS escaped HTML, which means it doesn't render HTML elements, it only renders text.
+* To output you use the directive `v-html`. This allows you to pass the name of the property which holds the HTML code. This directive tells Vue to render it as HTML instead of escaping it to text. Use this carefully as it does expose you to cross-site scriping attacks if used wrongly(user created content for example).
+
+```
+<p v-html="finishedLink"></p>
+```
