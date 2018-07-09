@@ -100,3 +100,36 @@ new Vue({
 
 ### Listening to events
 
+* If `v-bind` allows you to bind something in your template and pass data to it, `v-on` is the opposite, it allows you to listen to an element and get data from it.
+* `v-on` allows you to listen to any DOM event listed (mouseenter, mouseleave etc). For example `v-on:click="method"`.
+* `v-on:click="functionName"` takes the method name or to be executed code as an argument.
+* There is a default event object created by the DOM which holds information about the event, this object is passed automatically by Vuejs to any method you call using `v-on`.
+* 
+
+```
+<div id="app">
+  <button v-on:click="increase">Click me</button>
+  <p>{{ counter }}</p>
+  <p v-on:mousemove="updateCoordinates">Coordinated: {{ x }} {{ y }}</p>
+</div>
+```
+```
+new Vue({
+	el: '#app',
+  data: {
+  	counter: 0,
+    x: 0,
+    y: 0
+  },
+  methods: {
+  	increase: function() {
+    	this.counter++;
+    },
+    updateCoordinates: function(event) {
+    	this.x = event.clientX;
+      this.y = event.clientY;
+    }
+  }
+});
+```
+
