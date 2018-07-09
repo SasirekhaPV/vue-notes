@@ -115,7 +115,7 @@ new Vue({
 
 #### Key modifiers
 
-* Key modifiers allow you to specify on which keys you allow a method to be called '<input type="text" v-on:keyup.enter.space="alertMe">' these can also be chained.
+* Key modifiers allow you to control on which key a method is fired `<input type="text" v-on:keyup.enter.space="alertMe">` these can also be chained.
 
 ```
 <div id="app">
