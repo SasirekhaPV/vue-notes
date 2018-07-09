@@ -118,10 +118,16 @@ new Vue({
 * Key modifiers allow you to control on which key a method is fired `<input type="text" v-on:keyup.enter.space="alertMe">` these can also be chained.
 * This enables us to listen to specific keys, these are only useable for key-events
 
+#### Writing Javascript code in templates
+
+* In all the places where you can access the Vue instance like `{{ value }}` or `v-on:click="function"` you can write Javascript code as long as it only has one expression and doesn't contain a loop or if statement.
+* You can write simple Javascript in the template like this `{{ counter * 2 > 10 ? 'Greater than 10' : 'Smaller than 10'}}`.
+
 ```
 <div id="app">
   <button v-on:click="increase(2, $event)">Click me</button>
-  <p>{{ counter }}</p>
+  <button v-on:click="counter++">Click me</button>
+  <p>{{ counter * 2 > 10 ? 'Greater than 10' : 'Smaller than 10'}}</p>
   <p v-on:mousemove="updateCoordinates">
     Coordinated: {{ x }} / {{ y }}
     - <span v-on:mousemove.stop="">DEAD SPOT</span>
@@ -151,4 +157,5 @@ new Vue({
   }
 });
 ```
+
 
