@@ -107,17 +107,25 @@ new Vue({
 * You can add parentheses to a called method and pass your own argument `v-on:click="functionName(arg)"`
 * Using `$event` you can pass your own argument and the event object to a method `v-on:click="functionName(arg, $event)"`.
 
-#### Event modifier
+#### Event modifiers
 
 * Event modifiers allows you to modify an event. For example here VueJs stops the propagation of the event. `v-on:mousemove.stop=""`.
 * Other modifiers are `.prevent` for preventDefault.
 * Modifiers can be chained `v-on:mousemove.stop.prevent=""`.
 
+#### Key modifiers
+
+* Key modifiers allow you to specify on which keys you allow a method to be called '<input type="text" v-on:keyup.enter.space="alertMe">' these can also be chained.
+
 ```
 <div id="app">
   <button v-on:click="increase(2, $event)">Click me</button>
   <p>{{ counter }}</p>
-  <p v-on:mousemove="updateCoordinates">Coordinated: {{ x }} {{ y }}</p>
+  <p v-on:mousemove="updateCoordinates">
+    Coordinated: {{ x }} / {{ y }}
+    - <span v-on:mousemove.stop="">DEAD SPOT</span>
+  </p>
+  <input type="text" v-on:keyup.enter.space="alertMe">
 </div>
 ```
 ```
@@ -135,6 +143,9 @@ new Vue({
     updateCoordinates: function(event) {
     	this.x = event.clientX;
       this.y = event.clientY;
+    },
+    alertMe: function() {
+    	alert('Alert!');
     }
   }
 });
