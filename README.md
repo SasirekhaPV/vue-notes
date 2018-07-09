@@ -104,11 +104,18 @@ new Vue({
 * `v-on` allows you to listen to any DOM event listed (mouseenter, mouseleave etc). For example `v-on:click="method"`.
 * `v-on:click="functionName"` takes the method name or to be executed code as an argument.
 * There is a default event object created by the DOM which holds information about the event, this object is passed automatically by Vuejs to any method you call using `v-on`.
-* 
+* You can add parentheses to a called method and pass your own argument `v-on:click="functionName(arg)"`
+* Using `$event` you can pass your own argument and the event object to a method `v-on:click="functionName(arg, $event)"`.
+
+#### Event modifier
+
+* Event modifiers allows you to modify an event. For example here VueJs stops the propagation of the event. `v-on:mousemove.stop=""`.
+* Other modifiers are `.prevent` for preventDefault.
+* Modifiers can be chained `v-on:mousemove.stop.prevent=""`.
 
 ```
 <div id="app">
-  <button v-on:click="increase">Click me</button>
+  <button v-on:click="increase(2, $event)">Click me</button>
   <p>{{ counter }}</p>
   <p v-on:mousemove="updateCoordinates">Coordinated: {{ x }} {{ y }}</p>
 </div>
@@ -122,8 +129,8 @@ new Vue({
     y: 0
   },
   methods: {
-  	increase: function() {
-    	this.counter++;
+  	increase: function(step, event) {
+    	this.counter += step;
     },
     updateCoordinates: function(event) {
     	this.x = event.clientX;
