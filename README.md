@@ -123,6 +123,11 @@ new Vue({
 * In all the places where you can access the Vue instance like `{{ value }}` or `v-on:click="function"` you can write Javascript code as long as it only has one expression and doesn't contain a loop or if statement.
 * You can write simple Javascript in the template like this `{{ counter * 2 > 10 ? 'Greater than 10' : 'Smaller than 10'}}`.
 
+#### Using Two-Way binding
+
+* Two-way binding allows you to output data and listening to events at the same time.
+* This can be done using the `v-model` directive
+
 ```
 <div id="app">
   <button v-on:click="increase(2, $event)">Click me</button>
